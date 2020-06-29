@@ -1,13 +1,15 @@
 extends layout
 
 block content
-  h1= message
+  h1= 'QUIZY!!'
+  h2= 'Rozwiązuj quizy'
   div(class='quizDiv')
     if logged
       a(class='redButton', href="/users/logout") #{'Wyloguj'} 
       br
       a(class='greenButton', href="/") #{'Wróć'}
     else
+      h3(class="redText")= 'ale najpierw się zaloguj'
       form(action=`${login ? '/users/login' : '/users/register'}` method='POST')
         label #{'Login: '}
         input(type='input', class='textInput',  name='login' required)

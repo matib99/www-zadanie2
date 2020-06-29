@@ -7,53 +7,43 @@ body {
   align-content: center;
   display: inline-block;
   padding: auto;
+  width: 100%;
 }
 
 .container {
-  
+  font-size: 1vw;
+  margin: 0 auto;
+  align-content: center;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 1em;
+  width: 1200px;
+}
+
+.redButton,
+.greenButton,
+.blueButton {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 0px, 0px;
+  border-radius: 5px;
+  width: 9em;
+  align-self: center;
 }
 
 .blueButton {
   background-color: cornflowerblue;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1.5em;
-  margin: 10px;
-  border-radius: 5px;
-  width: 9em;
-  align-self: center;
 }
 .greenButton {
   background-color: darkseagreen;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1.5em;
-  margin: 10px;
-  border-radius: 5px;
-  width: 9em;
-  align-self: center;
 }
 .redButton {
   background-color: palevioletred;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1.5em;
-  margin: 10px;
-  border-radius: 5px;
-  width: 9em;
-  align-self: center;
 }
 
 p {
@@ -63,25 +53,27 @@ p {
 .quizDiv{
   color: rgb(26, 12, 0);
   background-color: cornsilk;
-  margin: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   border-radius: 0.5em;
   padding: 10px 30px;
-  width: 1200px;
-  display: flex;
-  flex-direction: column;
+  width: 80%;
+  display: inline-block;
 }
 
 
 
-.red:hover {
+.redButton:hover {
   background-color: rgb(173, 68, 95);
 }
 
-.green:hover {
+.greenButton:hover {
   background-color: rgb(106, 163, 104);
 }
 
-.blue:hover {
+.blueButton:hover {
   background-color: rgb(62, 81, 189);
 }
 
@@ -95,7 +87,6 @@ p {
   border-radius: 0.25em;
   min-width: 20em;
 }
-
 
 .questionResultDivCorrect {
   background-color: darkseagreen;
@@ -129,11 +120,13 @@ p {
 @media only screen and (max-width: 1200px) {  
   .container {
       font-size: 3vw;
+      width: 800px;
   }
 }
 
 @media only screen and (max-width: 800px) {  
   .container {
       font-size: 2.5vw;
+      width: 600px;
   }
 }
