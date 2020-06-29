@@ -1,4 +1,4 @@
-import { getQuizList, askForQuiz, switchQuestion, submitAnswers, getResults} from "../public/javascripts/quizz"
+import { getQuizList, askForQuiz, switchQuestion, submitAnswers, getResults} from "../public/javascripts/quiz"
 import * as express from 'express'
 import { strToInt } from '../public/javascripts/misc'
 

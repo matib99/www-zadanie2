@@ -195,7 +195,7 @@ const quiz_easy : quiz_t = {
 
 const quiz_medium : quiz_t = {
     name: "Średni",
-    description: "Spytacie jak trudny jest ten quiz. Nie jest trudny.\nCo prawda nie jest też łatwy, można powiedzieć że jest średni.",
+    description: "-Spytacie jak trudny jest ten quiz. Nie jest trudny.\nCo prawda nie jest też łatwy, można powiedzieć że jest średni.\n\n-To chyba super?\n\n-Oczywiście, że super!",
     questions: [
         {
             text: "8 * 7",

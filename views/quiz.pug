@@ -4,7 +4,7 @@ block content
   div(class='quizDiv')
     h1= `QUIZ ${quiz.name}`
     br
-    h2= `${quiz.description}`
+    p= `${quiz.description}`
     br
     br
     h2= `${quiz.questions[quiz.current_question].text}`
@@ -13,6 +13,7 @@ block content
     
     form(action=`/quizzes/solve/answer` method='POST')
         label #{'Odpowiedź: '}
+        br
         input(type='input' name='answer', class='textInput',
         value=`${
             quiz.questions[quiz.current_question].answer !== undefined 

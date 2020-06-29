@@ -2,12 +2,13 @@ body {
   font: 1vw "Century Gothic", Futura, sans-serif;
   margin: auto;
   background-color: cornflowerblue;
-  color: rgb(26, 12, 0);
+  color: cornsilk;
   text-align: center;
   align-content: center;
   display: inline-block;
   padding: auto;
   width: 100%;
+  white-space: pre-wrap;
 }
 
 .container {
@@ -23,14 +24,14 @@ body {
 .redButton,
 .greenButton,
 .blueButton {
-  color: white;
+  color: cornsilk;
   border: none;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 1.5em;
-  margin: 0px, 0px;
+  margin: 20px;
   border-radius: 5px;
   width: 9em;
   align-self: center;
