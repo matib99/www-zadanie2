@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  div(class='container')
+    div(class='quizDiv')
+        h1= `QUIZ ${result.name}`
+        br
+        h1= `Wynik: ${result.score}`
+        br
+        h2= `${result.description}`
+        br
+        br
+        each question in result.questions
+          if question.answer === question.correct_answer
+            div(class='questionResultDivCorrect')
+                h2= `${question.text} = ${question.answer}`
+                br
+                h2= `Czas: ${question.time} (średnia: ${question.avg_time})`
+          else
+            div(class='questionResultDivWrong')
+                h2= `${question.text} ≠ ${question.answer}`
+                h2= `(Poprawna odpowiedź: ${question.correct_answer})`
+                br
+                h2= `Czas: ${question.time} (średnia: ${question.avg_time})`
+                h2=` Kara: ${question.time_penalty}`
+        br
+        button(class='redButton', onclick=`window.location.href='/quizzes/all'`) #{'Wróć'}
+          
+          
+
+        

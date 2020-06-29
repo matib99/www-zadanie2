@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= message
+  div(class='quizDiv')
+    if logged
+      a(class='redButton', href="/users/logout") #{'Wyloguj'} 
+      br
+      a(class='greenButton', href="/") #{'Wróć'}
+    else
+      form(action=`${login ? '/users/login' : '/users/register'}` method='POST')
+        label #{'Login: '}
+        input(type='input', class='textInput',  name='login' required)
+        br
+        label #{'Hasło: '}
+        input(type='password', class='textInput', name='password' required)
+        br
+        input(class='blueButton', type='submit', value=`${login ? 'Zaloguj' : 'Zarejestruj'}`) 
+    
+        

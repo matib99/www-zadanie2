@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= "LISTA QUIZÓW"
+  each quiz in list
+    div(class="quizDiv")
+      h1= quiz.name
+      br
+      h2= quiz.description
+      br
+      if (quiz.solved == false)
+        button(class="greenButton", onclick=`window.location.href='/quizzes/start/${quiz.id}'`) #{'START'}
+      else
+        button(class="blueButton", onclick=`window.location.href='/quizzes/results/${quiz.id}'`) #{'WYNIKI'}
+  br
+  button(class='redButton', onclick=`window.location.href='/users/login'`) #{'Wyloguj'}
+        

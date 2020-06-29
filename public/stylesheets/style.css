@@ -1,0 +1,139 @@
+body {
+  font: 1vw "Century Gothic", Futura, sans-serif;
+  margin: auto;
+  background-color: cornflowerblue;
+  color: rgb(26, 12, 0);
+  text-align: center;
+  align-content: center;
+  display: inline-block;
+  padding: auto;
+}
+
+.container {
+  
+}
+
+.blueButton {
+  background-color: cornflowerblue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 10px;
+  border-radius: 5px;
+  width: 9em;
+  align-self: center;
+}
+.greenButton {
+  background-color: darkseagreen;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 10px;
+  border-radius: 5px;
+  width: 9em;
+  align-self: center;
+}
+.redButton {
+  background-color: palevioletred;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 10px;
+  border-radius: 5px;
+  width: 9em;
+  align-self: center;
+}
+
+p {
+  font-size: 1em;
+}
+
+.quizDiv{
+  color: rgb(26, 12, 0);
+  background-color: cornsilk;
+  margin: 20px;
+  border-radius: 0.5em;
+  padding: 10px 30px;
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.red:hover {
+  background-color: rgb(173, 68, 95);
+}
+
+.green:hover {
+  background-color: rgb(106, 163, 104);
+}
+
+.blue:hover {
+  background-color: rgb(62, 81, 189);
+}
+
+.questionResultDivCorrect,
+.questionResultDivWrong {
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 1em;
+  color: white;
+  text-align: left;
+  border-radius: 0.25em;
+  min-width: 20em;
+}
+
+
+.questionResultDivCorrect {
+  background-color: darkseagreen;
+}
+
+.questionResultDivWrong {
+  background-color: palevioletred;
+}
+
+.redText {
+  color: palevioletred;
+}
+
+.textInput {
+  color: white;
+  font-size: 1.5em;
+  padding: 10px 20px;
+  background-color: rgb(160, 149, 231);
+  border-radius: 0.25em;
+  border-style: none;
+  width: 20em;
+  margin: 10px;
+  align-self: center;
+}
+
+.textInput:focus {
+  outline: none;
+}
+
+
+@media only screen and (max-width: 1200px) {  
+  .container {
+      font-size: 3vw;
+  }
+}
+
+@media only screen and (max-width: 800px) {  
+  .container {
+      font-size: 2.5vw;
+  }
+}

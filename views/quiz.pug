@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  div(class='container')
+    div(class='quizDiv')
+        h1= `QUIZ ${quiz.name}`
+        br
+        h2= `${quiz.description}`
+        br
+        br
+        h2= `${quiz.questions[quiz.current_question].text}`
+        if bad_answer
+          h2(class='redText')= 'Odpowiedź musi być liczbą naturalną'
+        
+        form(action=`/quizzes/solve/answer` method='POST')
+            label #{'Odpowiedź: '}
+            input(type='input' name='answer', class='textInput',
+            value=`${
+                quiz.questions[quiz.current_question].answer !== undefined 
+                ? quiz.questions[quiz.current_question].answer 
+                : ''}`)
+            br
+            if quiz.current_question > 0
+              input(type='submit', class='blueButton', name='prev', value='<==')
+            if (quiz.current_question + 1) < quiz.questions.length
+              input(type='submit', class='blueButton', name='next', value='==>')
+            br
+            if (quiz.questions_left <= 1)
+              input(type='submit', class='greenButton', name='submit', value='Zakończ test')
+          
+
+        

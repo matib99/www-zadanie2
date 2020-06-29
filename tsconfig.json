@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "target": "es6",
+      "noImplicitAny": true,
+      "moduleResolution": "node",
+      "removeComments": true,
+      "lib": [
+        "es5",
+        "dom",
+        "ES2015"
+      ],
+      "watch": false,
+      "listFiles": false,
+      "typeRoots": [
+        "./custom_typings",
+        "./node_modules/@types"
+      ]
+    },
+    "exclude": [
+      "node_modules",
+      "createdb.ts",
+      "public/javascripts"
+    ]
+  }
