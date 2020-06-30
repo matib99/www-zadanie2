@@ -18,3 +18,29 @@ export const login = (login : string, password : string) => {
         })
     })
 } 
+
+export const changePassword= (user_id: number, oldPassword : string, newPassword : string) => {
+    return new Promise<boolean>((resolve, reject) => {
+        let db = new sqlite.Database(quiz_DATABASE)
+        db.get(`SELECT id FROM users WHERE id = '${user_id}' AND password = '${oldPassword}'`, 
+        (err, rows) => {
+            if(err) {
+                reject(err)
+                return;
+            }
+            if(rows === undefined) {
+                resolve(false)
+                return;
+            } 
+            else {
+                db.run(`UPDATE users SET password='${newPassword}' WHERE id = '${user_id}'`, (err) =>{
+                    if(err) {
+                        reject(err)
+                        return;
+                    } else 
+                    resolve(true)
+                })
+            }
+        })
+    })
+} 
