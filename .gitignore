@@ -5,3 +5,4 @@ public/javascripts/*.js
 public/javascripts/*.js.map
 routes/*.js
 createdb.js
+tests.js
