@@ -33,7 +33,7 @@ export const login = (login : string, password : string) => {
         (err, rows) => {
             if(err) reject(err)
             if(rows === undefined) {
-                resolve(undefined)
+                resolve({id: undefined, last_change: undefined})
             } 
             else {
                 resolve({
