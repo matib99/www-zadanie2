@@ -22,12 +22,13 @@ router.get('/logout', (req, res) => {
 
 router.post('/login', (req, res) => {
     login(req.body.login, req.body.password)
-    .then((userID) => {
-      if(userID === undefined) {
+    .then(({id, last_change}) => {
+      if(id === undefined) {
         res.status(403)
         res.send("Wrong login or password")
       } else {
-        req.session.userID = userID
+        req.session.userID = id
+        req.session.lastChange = last_change
         res.status(200)
         res.redirect('../quizzes/all')
       }

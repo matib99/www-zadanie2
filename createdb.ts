@@ -52,7 +52,8 @@ const createTables = (): Promise<void> => {
             CREATE TABLE users (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 login VARCHAR NOT NULL,
-                password VARCHAR NOT NULL
+                password VARCHAR NOT NULL,
+                last_change VARCHAR NOT NULL
             )        
         `)
         
@@ -109,13 +110,13 @@ const createTables = (): Promise<void> => {
 const addUsers = (): void => {
     let db = new sqlite.Database(quiz_DATABASE)
     db.run(`
-        INSERT INTO users (login, password)
-        VALUES ('user1', 'user1')
+        INSERT INTO users (login, password, last_change)
+        VALUES ('user1', 'user1', '2020-07-01 01:09:00')
     `)
 
     db.run(`
-        INSERT INTO users (login, password)
-        VALUES ('user2', 'user2')
+        INSERT INTO users (login, password, last_change)
+        VALUES ('user2', 'user2', '2020-07-01 01:09:00')
     `)
 } 
 

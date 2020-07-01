@@ -6,6 +6,7 @@ var logger = require('morgan');
 var session = require('express-session');
 const SQLiteStore = require('connect-sqlite3')(session)
 
+var login = require('./public/javascripts/login');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -30,6 +31,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function (req, res, next) {
+  if(req.session.userID !== undefined) {
+    login.checkSession(req.session.userID, req.session.lastChange)
+    .then((ret) => {
+      if(ret) {
+        next()
+      } else {
+        req.session.userID = undefined;
+        next()
+      }
+    })
+  } else {
+    next()
+  }
+})
 
 app.use(function (req, res, next) {
   if(req.session.userID === undefined && req.url !== '/users/login') {

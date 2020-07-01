@@ -2,18 +2,44 @@
 import * as sqlite3 from 'sqlite3'
 const sqlite = sqlite3.verbose()
 
+export type login_data_t = {
+    id: number,
+    last_change: string
+}
+
+
 const quiz_DATABASE = 'database.db'
-export const login = (login : string, password : string) => {
-    return new Promise<number>((resolve, reject) => {
+
+export const checkSession = (user_id: number, last_change: string):Promise<boolean> => {
+    return new Promise((resolve, reject) => {
         let db = new sqlite.Database(quiz_DATABASE)
-        db.get(`SELECT id FROM users WHERE login = '${login}' AND password = '${password}'`, 
+        db.get(`SELECT id FROM users WHERE id = '${user_id}' AND last_change = '${last_change}'`, (err, row) => {
+            if(err){
+                reject(err)
+            } else if(row === undefined) {
+                resolve(false)
+            } else {
+                resolve(true)
+            }
+        })
+    })
+}
+
+
+export const login = (login : string, password : string) => {
+    return new Promise<login_data_t>((resolve, reject) => {
+        let db = new sqlite.Database(quiz_DATABASE)
+        db.get(`SELECT id, last_change FROM users WHERE login = '${login}' AND password = '${password}'`, 
         (err, rows) => {
             if(err) reject(err)
             if(rows === undefined) {
                 resolve(undefined)
             } 
             else {
-                resolve(rows.id)
+                resolve({
+                    id: rows.id,
+                    last_change: rows.last_change
+                })
             }
         })
     })
@@ -33,7 +59,8 @@ export const changePassword= (user_id: number, oldPassword : string, newPassword
                 return;
             } 
             else {
-                db.run(`UPDATE users SET password='${newPassword}' WHERE id = '${user_id}'`, (err) =>{
+                const new_change = new Date().toString();
+                db.run(`UPDATE users SET password='${newPassword}', last_change='${new_change}' WHERE id = '${user_id}'`, (err) =>{
                     if(err) {
                         reject(err)
                         return;
@@ -44,3 +71,5 @@ export const changePassword= (user_id: number, oldPassword : string, newPassword
         })
     })
 } 
+
+module.exports = { checkSession, login, changePassword }
