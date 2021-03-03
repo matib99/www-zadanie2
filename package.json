@@ -19,7 +19,7 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "promisify": "0.0.3",
-    "pug": "2.0.0-beta11",
+    "pug": "3.0.1",
     "save": "^2.4.0",
     "sqlite3": "^4.2.0",
     "sqlite3-transactions": "0.0.5"
